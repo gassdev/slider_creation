@@ -24,6 +24,13 @@ var displayDot = (sliders) => {
 }
 
 var showSlide = (index) => {
-  slideIndex = index % slides.length
-  console.log(slideIndex)
+  let lastSlideIndex = slideIndex
+  slideIndex = Math.abs(index) % slides.length
+  // console.log(slideIndex)
+
+  // Hide previous slide
+  slides[lastSlideIndex].style.display = 'none'
+
+  // Display matched slide of slideIndex position
+  slides[slideIndex].style.display = 'block'
 }
