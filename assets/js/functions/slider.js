@@ -17,6 +17,7 @@ var displayDot = (sliders) => {
   for (let index = 0; index < sliders.length; index++) {
     const slide = sliders[index]
     var span = document.createElement('span')
+    span.onclick = () => showSlide(index)
     // span.className = 'dot'
     span.setAttribute('class', 'dot')
     document.getElementById('dots').appendChild(span)
