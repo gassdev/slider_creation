@@ -1,5 +1,7 @@
+var slideIndex = 0
+var slides = document.querySelectorAll('.slide')
+
 var hideSlide = () => {
-  var slides = document.querySelectorAll('.slide')
   displayDot(slides)
   for (let index = 1; index < slides.length; index++) {
     const slide = slides[index]
@@ -19,4 +21,9 @@ var displayDot = (sliders) => {
     span.setAttribute('class', 'dot')
     document.getElementById('dots').appendChild(span)
   }
+}
+
+var showSlide = (index) => {
+  slideIndex = index % slides.length
+  console.log(slideIndex)
 }
