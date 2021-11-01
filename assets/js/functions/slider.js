@@ -1,5 +1,6 @@
 var slideIndex = 0
 var slides = document.querySelectorAll('.slide')
+const TIME = 5000
 
 var hideSlide = () => {
   displayDot(slides)
@@ -35,3 +36,10 @@ var showSlide = (index) => {
   // Display matched slide of slideIndex position
   slides[slideIndex].style.display = 'block'
 }
+
+var changeSlide = () => {
+  let index = slideIndex + 1
+  showSlide(index)
+}
+
+var intervalID = setInterval(changeSlide, TIME)
