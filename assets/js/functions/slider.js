@@ -3,7 +3,7 @@ var slides = document.querySelectorAll('.slide')
 const TIME = 10000
 
 var hideSlide = () => {
-  displayDot(slides)
+  displayDot()
   for (let index = 1; index < slides.length; index++) {
     const slide = slides[index]
     slide.style.display = 'none'
@@ -14,9 +14,9 @@ var initSlider = () => {
   hideSlide()
 }
 
-var displayDot = (sliders) => {
-  for (let index = 0; index < sliders.length; index++) {
-    const slide = sliders[index]
+var displayDot = () => {
+  for (let index = 0; index < slides.length; index++) {
+    const slide = slides[index]
     var span = document.createElement('span')
     span.onclick = () => showSlide(index)
     // span.className = 'dot'
@@ -26,14 +26,15 @@ var displayDot = (sliders) => {
 }
 
 var showSlide = (index) => {
-  let lastSlideIndex = slideIndex
+  if (typeof index !== 'number') {
+    return
+  }
 
-  // if (index < 0) {
-  //   index += 5
-  // }
+  let lastSlideIndex = slideIndex
+  index %= slides.length
   index < 0 ? (index += 5) : null
 
-  slideIndex = index % slides.length
+  slideIndex = index
   // console.log(slideIndex)
 
   // Hide previous slide
