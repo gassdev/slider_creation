@@ -1,6 +1,6 @@
 var slideIndex = 0
 var slides = document.querySelectorAll('.slide')
-const TIME = 5000
+const TIME = 10000
 
 var hideSlide = () => {
   displayDot(slides)
@@ -27,7 +27,13 @@ var displayDot = (sliders) => {
 
 var showSlide = (index) => {
   let lastSlideIndex = slideIndex
-  slideIndex = Math.abs(index) % slides.length
+
+  // if (index < 0) {
+  //   index += 5
+  // }
+  index < 0 ? (index += 5) : null
+
+  slideIndex = index % slides.length
   // console.log(slideIndex)
 
   // Hide previous slide
